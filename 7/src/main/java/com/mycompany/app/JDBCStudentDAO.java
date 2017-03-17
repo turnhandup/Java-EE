@@ -5,9 +5,13 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
-
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Created by PANNA on 01.03.2017.
@@ -38,5 +42,19 @@ public class JDBCStudentDAO extends StudentDAO {
                         return student;
                     }
                 }, id);
+    }
+    EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "agisdb" );
+    EntityManager entitymanager = emfactory.createEntityManager();
+    public List<Student> getStudentsByCourse(int course){
+        Query query= entitymanager.createNamedQuery("Student.findByCourse");
+        query.setParameter("course", course);
+        List<Student> list = query.getResultList();
+        return list;
+    }
+
+    public List<Student> getStudents(){
+        Query query=entitymanager.createNamedQuery("Student.findAll");
+        List<Student> list = query.getResultList();
+        return list;
     }
 }

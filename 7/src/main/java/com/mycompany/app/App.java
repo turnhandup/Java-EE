@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Hello world!
@@ -44,5 +45,9 @@ public class App
         System.out.println(student);
         student = worker.getStudentFromDbById(1);
         System.out.println(student);
+        List<Student> list=worker.getStudentFromDbByCourse(5);
+        for(Student e:list) {
+            System.out.println(e.getPib());
+        }
     }
 }

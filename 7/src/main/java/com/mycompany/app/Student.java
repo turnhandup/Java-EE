@@ -8,8 +8,13 @@ import java.util.List;
 /**
  * Created by PANNA on 01.03.2017.
  */
+
 @Entity
 @Table(name="student")
+@NamedQueries(value = {
+        @NamedQuery(name = "Student.findAll", query = "SELECT pib FROM student"),
+        @NamedQuery(name="Student.findByCourse", query="SELECT pib FROM student WHERE course=:course")
+})
 public class Student {
     @Id
     @GeneratedValue

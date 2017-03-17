@@ -6,7 +6,7 @@ package com.mycompany.app;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Lectures")
+@Table(name="lectures")
 public class Lecture {
     @Id
     @GeneratedValue
