@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="test@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="test">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <schema id="7" parent="1" name="teaspo"/>
+    <table id="8" parent="2" name="address"/>
+    <table id="9" parent="2" name="jnd_student_teacher"/>
+    <table id="10" parent="2" name="lectures"/>
+    <table id="11" parent="2" name="student"/>
+    <table id="12" parent="2" name="teachers"/>
+    <column id="13" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="14" parent="8" name="city">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="15" parent="8" name="country">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="16" parent="8" name="state">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="17" parent="8" name="street1">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="18" parent="8" name="street2">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="19" parent="8" name="zipcode">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="20" parent="8" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="21" parent="9" name="student_fk">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="9" name="teacher_fk">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="23" parent="9" name="FKAB9B3B3F8B8FF2CD">
+      <ColNames>student_fk</ColNames>
+    </index>
+    <index id="24" parent="9" name="FKAB9B3B3F9C2B3D6D">
+      <ColNames>teacher_fk</ColNames>
+    </index>
+    <foreign-key id="25" parent="9" name="FKAB9B3B3F8B8FF2CD">
+      <ColNames>student_fk</ColNames>
+      <RefSchemaName>test</RefSchemaName>
+      <RefTableName>student</RefTableName>
+      <RefColNames>studentId</RefColNames>
+    </foreign-key>
+    <foreign-key id="26" parent="9" name="FKAB9B3B3F9C2B3D6D">
+      <ColNames>teacher_fk</ColNames>
+      <RefSchemaName>test</RefSchemaName>
+      <RefTableName>teachers</RefTableName>
+      <RefColNames>teacherId</RefColNames>
+    </foreign-key>
+    <column id="27" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="10" name="credits">
+      <Position>2</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="10" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="30" parent="10" name="lectures_fk">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="31" parent="10" name="FK615DA2B572C791BA">
+      <ColNames>lectures_fk</ColNames>
+    </index>
+    <key id="32" parent="10" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="33" parent="10" name="FK615DA2B572C791BA">
+      <ColNames>lectures_fk</ColNames>
+      <RefSchemaName>test</RefSchemaName>
+      <RefTableName>teachers</RefTableName>
+      <RefColNames>teacherId</RefColNames>
+    </foreign-key>
+    <column id="34" parent="11" name="studentId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="35" parent="11" name="course">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="36" parent="11" name="pib">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="37" parent="11" name="PRIMARY">
+      <ColNames>studentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="38" parent="12" name="teacherId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="39" parent="12" name="birth_date">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="40" parent="12" name="cell_phone">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="41" parent="12" name="firstname">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="42" parent="12" name="lastname">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="43" parent="12" name="address_fk">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="44" parent="12" name="FK9C07B0D144A16C2D">
+      <ColNames>address_fk</ColNames>
+    </index>
+    <key id="45" parent="12" name="PRIMARY">
+      <ColNames>teacherId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="46" parent="12" name="FK9C07B0D144A16C2D">
+      <ColNames>address_fk</ColNames>
+      <RefSchemaName>test</RefSchemaName>
+      <RefTableName>address</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
